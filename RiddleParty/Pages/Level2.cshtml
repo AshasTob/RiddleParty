@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assemble the Arrow Game</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <div style="font-size:32px">Level2: Just go where you want to go. And remember, when a wise man points at the stars - fool looks at his finger</div>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const pieces = [
+            { x: 100, y: 100, shape: 'tip', offsetX: 0, offsetY: 0, width: 50, height: 50 },
+            { x: 200, y: 100, shape: 'rightWing', offsetX: 0, offsetY: 0, width: 25, height: 50 },
+            { x: 300, y: 100, shape: 'leftWing', offsetX: 0, offsetY: 0, width: 25, height: 50 },
+            { x: 400, y: 100, shape: 'shaft', offsetX: 0, offsetY: 0, width: 25, height: 50 }
+        ];
+
+        let draggingPiece = null;
+
+        function drawArrowPiece(piece) {
+            ctx.fillStyle = 'black';
+            ctx.beginPath();
+
+            switch (piece.shape) {
+                case 'tip':
+                    ctx.moveTo(piece.x, piece.y);
+                    ctx.lineTo(piece.x + 25, piece.y - 50);
+                    ctx.lineTo(piece.x + 50, piece.y);
+                    ctx.closePath();
+                    break;
+                case 'rightWing':
+                    ctx.moveTo(piece.x + 25, piece.y - 50);
+                    ctx.lineTo(piece.x + 50, piece.y);
+                    ctx.lineTo(piece.x + 50, piece.y + 50);
+                    ctx.lineTo(piece.x + 25, piece.y + 50);
+                    ctx.closePath();
+                    break;
+                case 'leftWing':
+                    ctx.moveTo(piece.x, piece.y);
+                    ctx.lineTo(piece.x + 25, piece.y - 50);
+                    ctx.lineTo(piece.x + 25, piece.y + 50);
+                    ctx.lineTo(piece.x, piece.y + 50);
+                    ctx.closePath();
+                    break;
+                case 'shaft':
+                    ctx.moveTo(piece.x + 25, piece.y + 50);
+                    ctx.lineTo(piece.x + 25, piece.y + 100);
+                    ctx.lineTo(piece.x, piece.y + 100);
+                    ctx.lineTo(piece.x, piece.y + 50);
+                    ctx.closePath();
+                    break;
+            }
+
+            ctx.fill();
+        }
+
+        function drawArrow() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw arrow pieces
+            pieces.forEach(drawArrowPiece);
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            for (const piece of pieces) {
+                ctx.beginPath();
+                switch (piece.shape) {
+                    case 'tip':
+                        ctx.moveTo(piece.x, piece.y);
+                        ctx.lineTo(piece.x + 25, piece.y - 50);
+                        ctx.lineTo(piece.x + 50, piece.y);
+                        ctx.closePath();
+                        break;
+                    case 'rightWing':
+                        ctx.moveTo(piece.x + 25, piece.y - 50);
+                        ctx.lineTo(piece.x + 50, piece.y);
+                        ctx.lineTo(piece.x + 50, piece.y + 50);
+                        ctx.lineTo(piece.x + 25, piece.y + 50);
+                        ctx.closePath();
+                        break;
+                    case 'leftWing':
+                        ctx.moveTo(piece.x, piece.y);
+                        ctx.lineTo(piece.x + 25, piece.y - 50);
+                        ctx.lineTo(piece.x + 25, piece.y + 50);
+                        ctx.lineTo(piece.x, piece.y + 50);
+                        ctx.closePath();
+                        break;
+                    case 'shaft':
+                        ctx.moveTo(piece.x + 25, piece.y + 50);
+                        ctx.lineTo(piece.x + 25, piece.y + 100);
+                        ctx.lineTo(piece.x, piece.y + 100);
+                        ctx.lineTo(piece.x, piece.y + 50);
+                        ctx.closePath();
+                        break;
+                }
+
+                if (ctx.isPointInPath(mouseX, mouseY)) {
+                    draggingPiece = piece;
+                    draggingPiece.offsetX = mouseX - piece.x;
+                    draggingPiece.offsetY = mouseY - piece.y;
+                    break;
+                }
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (draggingPiece) {
+                const rect = canvas.getBoundingClientRect();
+                draggingPiece.x = e.clientX - rect.left - draggingPiece.offsetX;
+                draggingPiece.y = e.clientY - rect.top - draggingPiece.offsetY;
+                drawArrow();
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            draggingPiece = null;
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            draggingPiece = null;
+        });
+
+        drawArrow();
+    </script>
+</body>
+</html>

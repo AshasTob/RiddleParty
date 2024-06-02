@@ -29,5 +29,22 @@ namespace RiddleParty.Controllers
         {
             return View("./Pages/Login.cshtml");
         }
+
+        // This action renders the target page
+        public IActionResult Level2()
+        {
+            return View("./Pages/Level2.cshtml");
+        }
+
+        public IActionResult Level3()
+        {
+            return View("./Pages/Level3.cshtml");
+        }
+
+        [Route("lobyco/3level")]
+        public IActionResult Level3Mirror()
+        {
+            return View("./Pages/Level3Mirror.cshtml");
+        }
     }
 }
