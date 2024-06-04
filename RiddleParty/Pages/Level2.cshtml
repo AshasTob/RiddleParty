@@ -19,10 +19,8 @@
         const ctx = canvas.getContext('2d');
 
         const pieces = [
-            { x: 100, y: 100, shape: 'tip', offsetX: 0, offsetY: 0, width: 50, height: 50 },
-            { x: 200, y: 100, shape: 'rightWing', offsetX: 0, offsetY: 0, width: 25, height: 50 },
-            { x: 300, y: 100, shape: 'leftWing', offsetX: 0, offsetY: 0, width: 25, height: 50 },
-            { x: 400, y: 100, shape: 'shaft', offsetX: 0, offsetY: 0, width: 25, height: 50 }
+            { x: 400, y: 100, shape: 'tip', offsetX: 0, offsetY: 0, width: 50, height: 50 },
+            { x: 100, y: 100, shape: 'shaft', offsetX: 0, offsetY: 0, width: 25, height: 50 }
         ];
 
         let draggingPiece = null;
@@ -36,20 +34,6 @@
                     ctx.moveTo(piece.x, piece.y);
                     ctx.lineTo(piece.x + 25, piece.y - 50);
                     ctx.lineTo(piece.x + 50, piece.y);
-                    ctx.closePath();
-                    break;
-                case 'rightWing':
-                    ctx.moveTo(piece.x + 25, piece.y - 50);
-                    ctx.lineTo(piece.x + 50, piece.y);
-                    ctx.lineTo(piece.x + 50, piece.y + 50);
-                    ctx.lineTo(piece.x + 25, piece.y + 50);
-                    ctx.closePath();
-                    break;
-                case 'leftWing':
-                    ctx.moveTo(piece.x, piece.y);
-                    ctx.lineTo(piece.x + 25, piece.y - 50);
-                    ctx.lineTo(piece.x + 25, piece.y + 50);
-                    ctx.lineTo(piece.x, piece.y + 50);
                     ctx.closePath();
                     break;
                 case 'shaft':
@@ -83,20 +67,6 @@
                         ctx.moveTo(piece.x, piece.y);
                         ctx.lineTo(piece.x + 25, piece.y - 50);
                         ctx.lineTo(piece.x + 50, piece.y);
-                        ctx.closePath();
-                        break;
-                    case 'rightWing':
-                        ctx.moveTo(piece.x + 25, piece.y - 50);
-                        ctx.lineTo(piece.x + 50, piece.y);
-                        ctx.lineTo(piece.x + 50, piece.y + 50);
-                        ctx.lineTo(piece.x + 25, piece.y + 50);
-                        ctx.closePath();
-                        break;
-                    case 'leftWing':
-                        ctx.moveTo(piece.x, piece.y);
-                        ctx.lineTo(piece.x + 25, piece.y - 50);
-                        ctx.lineTo(piece.x + 25, piece.y + 50);
-                        ctx.lineTo(piece.x, piece.y + 50);
                         ctx.closePath();
                         break;
                     case 'shaft':

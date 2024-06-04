@@ -46,5 +46,17 @@ namespace RiddleParty.Controllers
         {
             return View("./Pages/Level3Mirror.cshtml");
         }
+
+        [Route("lobyco/locked")]
+        public IActionResult Locked()
+        {
+            return View("./Pages/Locked.cshtml");
+        }
+
+        [Route("lobyco/strong-commercial-home-screen")]
+        public IActionResult SCHS()
+        {
+            return View("./Pages/StrongCommercialHomeScreen.cshtml");
+        }
     }
 }

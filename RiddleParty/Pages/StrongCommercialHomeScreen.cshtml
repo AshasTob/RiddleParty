@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobyco</title>
+    <link rel="stylesheet" href="../css/schs.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            Chat with Netto CEO
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot-message">
+                <p class="typing-animation" id="initialMessage">so, you did hack them.</p>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="userInput" placeholder="Type your message here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = (event) => {
+            setTimeout(() => {
+                const chatBody = document.getElementById('chatBody');
+                const userInput = document.getElementById('userInput');
+                const userMessage = userInput.value.trim();
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.classList.add('message', 'bot-message');
+                const botMessageContent = document.createElement('p');
+                botMessageContent.classList.add('typing-animation');
+                botMessageDiv.appendChild(botMessageContent);
+                chatBody.appendChild(botMessageDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+                botMessageContent.textContent = "...";
+                setTimeout(() => {
+                    botMessageContent.textContent = "So what is so special about that LOBYCO thing ?";
+                }, 1500);
+            }, 3000);
+        };
+
+
+        function sendMessage() {
+            const chatBody = document.getElementById('chatBody');
+            const userInput = document.getElementById('userInput');
+            const userMessage = userInput.value.trim();
+
+            if (userMessage === '') return;
+
+            // User message
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.classList.add('message', 'user-message');
+            const userMessageContent = document.createElement('p');
+            userMessageContent.textContent = userMessage;
+            userMessageDiv.appendChild(userMessageContent);
+            chatBody.appendChild(userMessageDiv);
+            userInput.value = '';
+
+            // Bot response
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.classList.add('message', 'bot-message');
+            const botMessageContent = document.createElement('p');
+            botMessageContent.classList.add('typing-animation');
+            botMessageDiv.appendChild(botMessageContent);
+            chatBody.appendChild(botMessageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+            botMessageContent.textContent = "...";
+            // Simulate typing delay
+            setTimeout(() => {
+                botMessageContent.textContent = "lol, ok. Great job, you got a raise. Anyway, send Alex a screenshot of this chat, he is our secret agent anyway.";
+                botMessageContent.classList.remove('typing-animation');
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
