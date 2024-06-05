@@ -37,6 +37,7 @@ namespace RiddleParty.Controllers
             return View("./Pages/Loading.cshtml");
         }
 
+        [HttpGet("/lobyco/home-screen")]
         // This action renders the target page
         public IActionResult Playgroud()
         {
