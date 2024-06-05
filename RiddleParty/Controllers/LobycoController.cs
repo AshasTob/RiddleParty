@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RiddleParty.Pages;
 
 namespace RiddleParty.Controllers
 {
@@ -10,6 +11,12 @@ namespace RiddleParty.Controllers
             return View("./Pages/Login.cshtml");
         }
 
+        // This action returns the view with the button
+        public IActionResult Welcome()
+        {
+            return View("./Pages/Welcome.cshtml");
+        }
+
         // This action handles the button click and redirects to AnotherPage
         [HttpPost]
         public IActionResult Validate(string password)
@@ -17,17 +24,23 @@ namespace RiddleParty.Controllers
             if (password is null) return RedirectToAction("Login");
             if (password.ToLower() == "password")
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Loading");
             }
 
             ViewBag.HasError = true;
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
+        }
+
+        // This action returns the view with the button
+        public IActionResult Loading()
+        {
+            return View("./Pages/Loading.cshtml");
         }
 
         // This action renders the target page
-        public IActionResult Login()
+        public IActionResult Playgroud()
         {
-            return View("./Pages/Login.cshtml");
+            return View("./Pages/Playgroud.cshtml");
         }
 
         // This action renders the target page
