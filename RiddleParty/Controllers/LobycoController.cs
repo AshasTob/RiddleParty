@@ -66,10 +66,27 @@ namespace RiddleParty.Controllers
             return View("./Pages/Locked.cshtml");
         }
 
+        [Route("lobyco/4level")]
+        public IActionResult Solution1()
+        {
+            return View("./Pages/Solution1.cshtml");
+        }
+
         [Route("lobyco/strong-commercial-home-screen")]
         public IActionResult SCHS()
         {
             return View("./Pages/StrongCommercialHomeScreen.cshtml");
+        }
+
+        [Route("lobyco/solution-check-api")]
+        public IActionResult SolutionCheckAPI(string input)
+        {
+            if (input.ToLower() == "homescreen, hero banner, communication manager sunset, reels")
+            {
+                return Ok("lol, ok. Great job, you got a raise. Anyway, send Alex a screenshot of this chat, he is our secret agent anyway.");
+            }
+
+            return Ok("bruh. Stop wasting my time. Come back when you hacked them.");
         }
     }
 }

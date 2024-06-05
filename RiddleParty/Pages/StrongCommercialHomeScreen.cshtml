@@ -13,7 +13,7 @@
         </div>
         <div class="chat-body" id="chatBody">
             <div class="message bot-message">
-                <p class="typing-animation" id="initialMessage">so, you did hack them.</p>
+                <p class="typing-animation" id="initialMessage">so, did you hack them?</p>
             </div>
         </div>
         <div class="chat-footer">
@@ -37,7 +37,7 @@
                 chatBody.scrollTop = chatBody.scrollHeight;
                 botMessageContent.textContent = "...";
                 setTimeout(() => {
-                    botMessageContent.textContent = "So what is so special about that LOBYCO thing ?";
+                    botMessageContent.textContent = "What are the four ingredients they cooked?";
                 }, 1500);
             }, 3000);
         };
@@ -59,6 +59,10 @@
             chatBody.appendChild(userMessageDiv);
             userInput.value = '';
 
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "/lobyco/solution-check-api?input=" + userMessage, true);
+            xhttp.send();
+
             // Bot response
             const botMessageDiv = document.createElement('div');
             botMessageDiv.classList.add('message', 'bot-message');
@@ -70,7 +74,7 @@
             botMessageContent.textContent = "...";
             // Simulate typing delay
             setTimeout(() => {
-                botMessageContent.textContent = "lol, ok. Great job, you got a raise. Anyway, send Alex a screenshot of this chat, he is our secret agent anyway.";
+                botMessageContent.textContent = xhttp.responseText;
                 botMessageContent.classList.remove('typing-animation');
             }, 1500);
         }
