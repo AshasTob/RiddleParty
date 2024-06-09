@@ -11,9 +11,10 @@
     </style>
 </head>
 <body>
-    <!-- You need to go to the next level-->
+    <!-- You just need to go to the next level-->
     <canvas id="myCanvas" width="500" height="500"></canvas>
-    <div style="font-size:32px">Level2: Yurii Konovalets is very keen on making path, where I hint you to, very clean. Use it, to go where you want to be. And remember, when a wise man points at the stars - fool looks at his finger</div>
+    <div style="font-size:32px">Level2: Yurii Konovalets is very eager to improve teams make THIS path. Use it to go to the next level. </div>
+    <div style="font-size:22px"> And remember, when a wise man points at the stars - fool looks at his finger</div>
     <script>
         const canvas = document.getElementById('myCanvas');
         const ctx = canvas.getContext('2d');
@@ -63,12 +64,6 @@
             for (const piece of pieces) {
                 ctx.beginPath();
                 switch (piece.shape) {
-                    case 'tip':
-                        ctx.moveTo(piece.x, piece.y);
-                        ctx.lineTo(piece.x + 25, piece.y - 50);
-                        ctx.lineTo(piece.x + 50, piece.y);
-                        ctx.closePath();
-                        break;
                     case 'shaft':
                         ctx.moveTo(piece.x + 25, piece.y + 50);
                         ctx.lineTo(piece.x + 25, piece.y + 100);

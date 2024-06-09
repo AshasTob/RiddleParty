@@ -73,21 +73,53 @@ namespace RiddleParty.Controllers
             return View("./Pages/Solution1.cshtml");
         }
 
-        [Route("lobyco/strong-commercial-home-screen")]
-        public IActionResult SCHS()
+        [Route("lobyco/chat")]
+        public IActionResult Chat()
         {
-            return View("./Pages/StrongCommercialHomeScreen.cshtml");
+            return View("./Pages/Chat.cshtml");
         }
 
         [Route("lobyco/solution-check-api")]
         public IActionResult SolutionCheckAPI(string input)
         {
-            if (input.ToLower() == "homescreen, hero banner, communication manager sunset, reels")
+            if (input.ToLower() == "homescreen, hero banner, communication manager sunset" || input.ToLower() == "homescreen hero banner communication manager sunset")
             {
                 return Ok("lol, ok. Great job, you got a raise. Anyway, send Alex a screenshot of this chat, he is our secret agent anyway.");
             }
 
             return Ok("bruh. Stop wasting my time. Come back when you hacked them.");
+        }
+
+        [Route("lobyco/trash")]
+        public IActionResult Trash()
+        {
+            return View("./Pages/Trash.cshtml");
+        }
+
+        [Route("lobyco/hacking")]
+        public IActionResult Hacking()
+        {
+            return View("./Pages/Button.cshtml");
+        }
+
+
+        [HttpPost]
+        [Route("lobyco/button-was-clicked-lol")]
+        public IActionResult GetTheURL()
+        {
+            return Ok("/lobyco/great-success");
+        }
+
+        [Route("lobyco/great-success")]
+        public IActionResult GreatSuccess()
+        {
+            return View("./Pages/Solution3.cshtml");
+        }
+
+        [Route("lobyco/journey")]
+        public IActionResult Journey()
+        {
+            return View("./Pages/Journey1.cshtml");
         }
     }
 }

@@ -43,19 +43,28 @@ document.querySelector(".cls").onclick = function () {
     document.querySelector(".window").style.display = "none"
 }
 
-document.querySelector(".faisal-akhtar").ondblclick = function () {
+document.querySelector(".task-1").ondblclick = function () {
     setTimeout( ()=> { this.classList.remove("selected") }, 2 )
-    window.open("https://faisalakhtar.github.io/")
+    window.open("level2")
 }
 
-document.querySelector(".my-computer").ondblclick = function () {
+document.querySelector(".task-2").ondblclick = function () {
     setTimeout( ()=> { this.classList.remove("selected") }, 2 )
-    window.open("https://github.com/faisalAkhtar/")
+    window.open("locked")
+}
+document.querySelector(".task-3").ondblclick = function () {
+    setTimeout(() => { this.classList.remove("selected") }, 2)
+    window.open("hacking")
 }
 
-document.querySelector(".my-network").ondblclick = function () {
-    setTimeout( ()=> { this.classList.remove("selected") }, 2 )
-    window.open("https://twitter.com/faisallakhtarr/")
+document.querySelector(".recycle-bin").ondblclick = function () {
+    setTimeout(() => { this.classList.remove("selected") }, 2)
+    window.open("trash")
+}
+
+document.querySelector(".chat").ondblclick = function () {
+    setTimeout(() => { this.classList.remove("selected") }, 2)
+    window.open("chat")
 }
 
 document.querySelector(".note-pad").ondblclick = function () {
@@ -66,8 +75,7 @@ document.querySelector(".note-pad").ondblclick = function () {
     document.querySelector(".window").classList.remove("minimized")
 }
 
-document.querySelector("textarea").value = "Hello World!\n\nFeatures:\n- Desktop icons are clickable. Double clicking them takes you to some of my links (github, twitter, portfolio).\n- Time in system-tray is your system's time.\n- This window is draggable, closable, minimizable and maximizable. Try it.\n- The opened tabs in taskbar also take you to my links, same as the icons.\n______________________________\n\nThe code is on github. Star the repository if you liked this. Contributions to this repository are welcome and appreciated.\n______________________________\n\nDo follow me on github (@faisalakhtar) and twitter(@faisallakhtarr). Open 'My Computer' and 'My Network' to go to these links.\n"
-
+document.querySelector("textarea").value = "Welcome to a small treasure hunt game!\n\nYou can find four folders on this PC homescreen. Each folder is a chain of small riddles that will lead you to a piece of a puzzle. \n In order to win your team has to open messenger app on this PC and reply to your boss. Your reply is one message, so order matters :) \n---------------------------------------------\nGL HF"
 
 dragWindow(document.querySelector(".window"));
 function dragWindow(elmnt) {

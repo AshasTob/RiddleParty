@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible Sections</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .section {
+            flex: 1;
+            border-right: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .section:last-child {
+                border-right: none;
+            }
+
+        .header {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content {
+            flex: 1;
+            padding: 10px;
+            display: none;
+        }
+
+            .content.show {
+                display: block;
+            }
+
+        .arrow {
+            border: solid white;
+            border-width: 0 4px 4px 0;
+            display: inline-block;
+            padding: 4px;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .down {
+            transform: rotate(45deg);
+        }
+
+        .up {
+            transform: rotate(-135deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="header" onclick="toggleContent('leftContent', this)">
+            Task for Lviv office
+            <i class="arrow down"></i>
+        </div>
+        <div class="content" id="leftContent">
+            <p>This is the content of the left section. It is initially hidden and can be unfolded by clicking the header.</p>
+        </div>
+    </div>
+    <div class="section">
+        <div class="header" onclick="toggleContent('rightContent', this)">
+            Task for CPH office
+            <i class="arrow down"></i>
+        </div>
+        <div class="content" id="rightContent">
+            <p>This is the content of the right section. It is initially hidden and can be unfolded by clicking the header.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id, header) {
+            const content = document.getElementById(id);
+            const arrow = header.querySelector('.arrow');
+            content.classList.toggle('show');
+            arrow.classList.toggle('down');
+            arrow.classList.toggle('up');
+        }
+    </script>
+</body>
+</html>
