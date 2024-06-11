@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prank Pop-up</title>
+    <title>Hacking</title>
     <style>
         body {
             margin: 0;
@@ -103,6 +103,13 @@
 
         popup.style.left = `${(window.innerWidth - popup.clientWidth) / 2}px`;
         popup.style.top = `${(window.innerHeight - popup.clientHeight) / 2}px`;
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Tab' || event.keyCode === 9) {
+                event.preventDefault();
+                alert('Tabbing is not hacking');
+            }
+        });
     </script>
 </body>
 </html>

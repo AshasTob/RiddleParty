@@ -75,7 +75,7 @@ document.querySelector(".note-pad").ondblclick = function () {
     document.querySelector(".window").classList.remove("minimized")
 }
 
-document.querySelector("textarea").value = "Welcome to a small treasure hunt game!\n\nYou can find four folders on this PC homescreen. Each folder is a chain of small riddles that will lead you to a piece of a puzzle. \n In order to win your team has to open messenger app on this PC and reply to your boss. Your reply is one message, so order matters :) \n---------------------------------------------\nGL HF"
+document.querySelector("textarea").value = "Welcome to a small treasure hunt game!\n\nYou can find three folders on this PC homescreen. Each folder is a chain of small riddles that will lead you to a piece of a puzzle. \n In order to win your team has to open messenger app on this PC and reply to your boss. Your reply is one message, so order matters :) \n---------------------------------------------\nHave funz"
 
 dragWindow(document.querySelector(".window"));
 function dragWindow(elmnt) {

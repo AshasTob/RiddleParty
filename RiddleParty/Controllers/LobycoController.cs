@@ -37,6 +37,12 @@ namespace RiddleParty.Controllers
             return View("./Pages/Loading.cshtml");
         }
 
+        [Route("lobyco/login")]
+        public IActionResult Login()
+        {
+            return View("./Pages/Login.cshtml");
+        }
+
         [HttpGet("/lobyco/home-screen")]
         // This action renders the target page
         public IActionResult Playgroud()
