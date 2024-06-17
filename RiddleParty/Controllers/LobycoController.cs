@@ -127,5 +127,25 @@ namespace RiddleParty.Controllers
         {
             return View("./Pages/Journey1.cshtml");
         }
+
+        [HttpPost]
+        [Route("lobyco/unlocked")]
+        public IActionResult Unlock(int number1, int number2, int number3)
+        {
+            ViewBag.error = "";
+            if (number1 == 0 && number2 == 4 && number3 == 2)
+            {
+                return RedirectToAction("LockUnlocked");
+            }
+            ViewBag.error = "wrong guess";
+            return View("./Pages/Locked.cshtml");
+
+        }
+
+        [Route("lobyco/box-opened")]
+        public IActionResult LockUnlocked()
+        {
+            return View("./Pages/Solution2.cshtml");
+        }
     }
 }

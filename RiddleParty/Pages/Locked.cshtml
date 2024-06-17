@@ -41,17 +41,37 @@
             padding: 8px;
             text-align: center;
         }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+            .input-row input {
+                width: 50px;
+                text-align: center;
+            }
+
+        .submit-button {
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="../img/CPHBox.jpg" alt="Image A" id="imageA">
-        /
-        <img src="../img/LvivBox.jpg" alt="Image B" id="imageB">
-       
-    </div>
 
-    ORG comment: Guys if you get to open box - take what inside or take a photo and put it back, and close the locker please :) There are many teams..
     <table>
         <tr>
             <td>🔒</td>
@@ -85,5 +105,20 @@
         </tr>
     </table>
     <div style="font-size: 32px">Christian really loves his Excel tables. He says that information in this sheet will help you open the lock.</div>
+
+    <div class="form-container">
+        <form action="/lobyco/unlocked" method="post">
+            <div class="input-row">
+                <input type="text" name="number1" maxlength="1" required>
+                <input type="text" name="number2" maxlength="1" required>
+                <input type="text" name="number3" maxlength="1" required>
+            </div>
+            <div class="submit-button">
+                <button type="submit">unlock</button>
+            </div>
+            <div id="error-message" class="error-message">@ViewBag.error</div>
+        </form>
+    </div>
 </body>
+</script>
 </html>
